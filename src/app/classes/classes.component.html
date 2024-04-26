@@ -1,0 +1,19 @@
+
+<h2>Ajouter une nouvelle classe</h2>
+<form (submit)="onAddClass()">
+  <label>Nom de la classe:</label>
+  <input type="text" [(ngModel)]="newClassName" name="newClassName" required>
+  <button type="submit">Ajouter</button>
+</form>
+
+<hr>
+
+
+<h2>Liste des classes existantes</h2>
+<ul>
+  <li *ngFor="let class of classes">
+    {{ class.name }}
+    <button (click)="onEditClass(class)">Modifier</button>
+    <button (click)="onDeleteClass(class)">Supprimer</button>
+  </li>
+</ul>

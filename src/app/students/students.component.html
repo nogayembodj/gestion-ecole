@@ -1,0 +1,32 @@
+<div>
+    <h2>Ajouter un nouvel élève</h2>
+    <form (ngSubmit)="addStudent()" #studentForm="ngForm">
+      <label for="firstName">Prénom:</label>
+      <input type="text" id="firstName" name="firstName" ngModel required>
+  
+      <label for="lastName">Nom:</label>
+      <input type="text" id="lastName" name="lastName" ngModel required>
+  
+      <label for="class">Classe:</label>
+      <select id="class" name="class" ngModel required>
+        <option value="A">Classe A</option>
+        <option value="B">Classe B</option>
+        <option value="C">Classe C</option>
+      </select>
+  
+      <button type="submit" [disabled]="!studentForm.valid">Ajouter</button>
+    </form>
+  </div>
+  
+
+  <div>
+    <h2>Liste des élèves</h2>
+    <ul>
+      <li *ngFor="let student of students">
+        {{ student.firstName }} {{ student.lastName }} - {{ student.class }}
+        <button (click)="editStudent(student)">Modifier</button>
+        <button (click)="deleteStudent(student)">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  
